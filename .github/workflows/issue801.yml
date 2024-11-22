@@ -4,12 +4,12 @@ on:
  workflow_dispatch:
 env:
   CI: true
-  PNPM_CACHE_FOLDER: .pnpm-store
+  PNPM_CACHE_FOLDER: ~/.pnpm-store
 jobs:
  testjob:
     name: pip
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v4
       - name: Setup pnpm
@@ -17,7 +17,7 @@ jobs:
         with:
           version: 8
       - name: Create PNPM Cache Directory
-        run: mkdir -p .pnpm-store
+        run: mkdir -p ~/.pnpm-store
       - uses: actions/setup-node@v4
         with:
            node-version: '18'
