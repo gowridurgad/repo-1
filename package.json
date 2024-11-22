@@ -7,15 +7,7 @@
     "author": "Albert Chu <albert.chu@shopify.com>",
     "license": "MIT",
   
-    "workspaces": [
-      "packages/codemirror-language-client",
-      "packages/liquid-html-parser",
-      "packages/prettier-plugin-liquid",
-      "packages/theme-check-*",
-      "packages/theme-language-server-*",
-      "packages/vscode-extension",
-      "packages/release-orchestrator"
-    ],
+    
     "scripts": {
       "admin:build": "sh ./scripts/dev-admin-build.sh",
       "admin:init": "sh ./scripts/dev-admin-init.sh",
