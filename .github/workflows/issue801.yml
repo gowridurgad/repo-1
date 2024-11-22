@@ -2,7 +2,9 @@ name: issue801
 
 on:
  workflow_dispatch:
-
+env:
+  CI: true
+  PNPM_CACHE_FOLDER: .pnpm-store
 jobs:
  testjob:
     name: pip
