@@ -2,9 +2,7 @@ name: issue801
 
 on:
  workflow_dispatch:
-env:
-  CI: true
-  PNPM_CACHE_FOLDER: ~/.pnpm-store
+
 jobs:
  testjob:
     name: pip
@@ -16,8 +14,7 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: 8
-      - name: Create PNPM Cache Directory
-        run: mkdir -p ~/.pnpm-store
+     
       - uses: actions/setup-node@v4
         with:
            node-version: '18'
