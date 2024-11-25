@@ -22,7 +22,7 @@ jobs:
           cache: 'pnpm'
           cache-dependency-path: 'pnpm-lock.yaml'
 
-      - name: Debug - List files
+      - name: Verify pnpm-lock.yaml Path
         run: |
           echo "Current directory: $(pwd)"
-          ls -al
+          ls -al pnpm-lock.yaml
