@@ -20,9 +20,9 @@ jobs:
         with:
           node-version: '18'
           cache: 'pnpm'
-          cache-dependency-path: 'pnpm-lock.yaml'
+          cache-dependency-path: './pnpm-lock.yaml'
 
       - name: Verify pnpm-lock.yaml Path
         run: |
           echo "Current directory: $(pwd)"
-          ls -al pnpm-lock.yaml
+          ls -al ./pnpm-lock.yaml
