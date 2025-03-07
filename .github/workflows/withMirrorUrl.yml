@@ -17,7 +17,7 @@ jobs:
         uses: marco-ippolito/setup-node@mirror
         with:
           node-version: '22'
-          mirror: 'https://nodejs.org/dist/ '
+          mirror: 'https://nodejs.org/download/release/'
           mirror-token: ${{secrets.TOKEN_GITHUB}}
       - name: Verify Node.js installation
         run: node -v  
