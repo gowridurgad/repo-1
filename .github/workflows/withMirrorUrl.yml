@@ -18,6 +18,7 @@ jobs:
         with:
           node-version: '18'
           mirror: 'https://nodejs.org/dist/'
-          mirror-token: ${{secrets.TOKEN_GITHUB}}
+         # mirror-token: ${{secrets.TOKEN_GITHUB}}
+          check-latest: false
       - name: Verify Node.js installation
         run: node -v  
