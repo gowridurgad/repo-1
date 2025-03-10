@@ -16,7 +16,7 @@ jobs:
       - uses: marco-ippolito/setup-node@mirror
         with:
           node-version: '20.0.0-v8-canary'
-          mirror: 'https://nodejs.org/'
+          mirror: 'https://nodejs.org/download/v8-canary'
           mirror-token: ${{secrets.GITHUB_TOKEN}}
       - name: Verify Node.js installation
         run: node -v    
@@ -34,7 +34,7 @@ jobs:
       - uses: marco-ippolito/setup-node@mirror
         with:
           node-version: '16.0.0-nightly'
-          mirror: 'https://nodejs.org/'
+          mirror: 'https://nodejs.org/download/nightly'
           mirror-token: ${{secrets.GITHUB_TOKEN}}
       - name: Verify Node.js installation
         run: node -v    
