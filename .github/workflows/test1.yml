@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: marco-ippolito/setup-node@mirror
         with:
-          node-version: 'lts/*'
+          node-version: 'current'
           mirror: 'https://nodejs.org/'
           mirror-token: ${{secrets.GITHUB_TOKEN}}
       - name: Verify Node.js installation
