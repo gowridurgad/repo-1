@@ -18,7 +18,7 @@ jobs:
         uses: marco-ippolito/setup-node@mirror
         with:
           node-version-file: '.nvmrc'
-          mirror: 'https://nodejs.cloudflare.com/'
+          mirror: 'https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/'
           mirror-token: ${{secrets.GITHUB_TOKEN}}
           check-latest: true
       - name: Verify Node.js installation
