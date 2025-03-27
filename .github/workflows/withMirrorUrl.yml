@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest, macos-13, ubuntu-24.04-arm]
-        node-version: ['latest','current','node'] 
+        node-version: [lts/erbium, lts/fermium, lts/*, lts/-n] 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
