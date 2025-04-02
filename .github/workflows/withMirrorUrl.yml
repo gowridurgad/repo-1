@@ -1,25 +1,30 @@
-name: MirrorUrl-1240PR
+name: mirrorurl-pr1240
 
 on:
-  workflow_dispatch:
+ workflow_dispatch:
+ 
 
 jobs:
-  setup-node:
+  test:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest, macos-13, ubuntu-24.04-arm]
-        node-version: ['latest','current','node'] 
+        os: [ubuntu-latest, macos-latest, windows-latest, ubuntu-24.04-arm]
+        node-version: [lts/erbium, lts/fermium, lts/*, lts/-n]  
     steps:
-      - name: Checkout code
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js with mirrorURL
+      - name: Set up Node.js
         uses: marco-ippolito/setup-node@mirror
         with:
           node-version: ${{ matrix.node-version }}
           mirror: 'https://nodejs.org'
           mirror-token: ${{secrets.GITHUB_TOKEN}}
-          check-latest: true
-      - name: Verify Node.js installation
-        run: node -v  
+          
+
+      - name: Verify Node.js Installation
+        run: |
+          node -v
+          npm -v
