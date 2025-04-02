@@ -1,3 +1,4 @@
+
 name: MirrorUrl-1240PR
 
 on:
@@ -16,8 +17,9 @@ jobs:
       - name: Set up Node.js with mirrorURL
         uses: marco-ippolito/setup-node@mirror
         with:
-          node-version-file: '.nvmrc'
-          mirror: 'https://nodejs.org '
+          node-version: '23'
+          mirror: 'https://nodejs.org'
           mirror-token: ${{secrets.GITHUB_TOKEN}}
+          check-latest: true
       - name: Verify Node.js installation
         run: node -v  
