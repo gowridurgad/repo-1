@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-13]
+        os: [macos-13, ubuntu-latest]
         node-version: [lts/erbium, lts/fermium, lts/*, lts/-1]  
     steps:
       - name: Checkout Repository
