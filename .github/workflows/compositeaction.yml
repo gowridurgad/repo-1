@@ -1,4 +1,4 @@
-name: Composite Action Example
+name: Composite Action Example12
 on:
   workflow_dispatch:
 jobs:
@@ -8,5 +8,5 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Set up Node.js
-        uses: gowridurgad/repo-2@main
+        uses: gowridurgad/sample-python@main
         
