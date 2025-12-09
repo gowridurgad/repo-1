@@ -25,10 +25,10 @@ jobs:
         run: dotnet restore app/app.csproj
 
       - name: Build
-        run: dotnet build --configuration Release --no-restore app/app.csproj
+        run: dotnet build --configuration Release  app/app.csproj
 
       - name: Pack
-        run: dotnet pack --configuration Release --no-build app/app.csproj
+        run: dotnet pack --configuration Release app/app.csproj
       - name: Publish the package to nuget.org
         run: dotnet nuget push */bin/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json
         env:
