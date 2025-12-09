@@ -29,7 +29,10 @@ jobs:
 
       - name: Pack
         run: dotnet pack --configuration Release --no-build app/app.csproj
+      - name: Publish the package to nuget.org
+        run: dotnet nuget push */bin/Release/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json
+        env:
+           NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
 
-      - name: Publish to NuGet
-        run: dotnet nuget push '**/*.nupkg' --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
+
 
