@@ -1,0 +1,34 @@
+name: workloads-523
+on:
+  workflow_dispatch:
+
+jobs:
+  dotnet-install-matrix:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+        dotnet: ['9.0.x']
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5    
+
+      - name: Setup .NET
+        # uses: actions/setup-dotnet@v5
+        uses: gowridurgad/setup-dotnet@523-feature
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+          workloads: wasm-tools
+
+      - name: Restore dependencies
+        run: dotnet restore MyApp/MyApp.csproj
+
+      - name: Build
+        run: dotnet build --configuration Release MyApp/MyApp.csproj
+
+      - name: Pack
+        run: dotnet pack --configuration Release -o ./nupkgs MyApp/MyApp.csproj
+
+      - name: Publish to GitHub Packages
+        run: dotnet nuget push ./nupkgs/*.nupkg  --source "github" --api-key ${{ secrets.TOKEN_github }}
